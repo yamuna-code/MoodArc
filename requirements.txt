@@ -1,0 +1,7 @@
+spotipy
+lyricsgenius
+vaderSentiment
+pandas
+numpy
+streamlit
+plotly
