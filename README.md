@@ -10,8 +10,7 @@ The project combines **data engineering**, **machine learning**, **text analytic
 
 ## 🚀 Live Demo
 
-🔗 **Streamlit App:** *(Add your deployed Streamlit URL here)*
-
+🔗 **Streamlit App:** [*https://moodarc.streamlit.app/*]
 ---
 
 # 📖 Table of Contents
@@ -316,26 +315,6 @@ Open the local Streamlit URL in your browser.
 
 ---
 
-# 📸 Screenshots
-
-## Emotion Matrix
-
-> *(Insert screenshot here)*
-
----
-
-## AI Scene Sync Tool
-
-> *(Insert screenshot here)*
-
----
-
-## Dashboard
-
-> *(Insert dashboard GIF here)*
-
----
-
 # 📂 Project Structure
 
 ```
@@ -455,24 +434,11 @@ making it an excellent portfolio project for Data Science, Machine Learning, and
 
 # 👨‍💻 Author
 
-**Your Name**
+**Yamuna**
 
 Second-Year Data Science Student
 
-- LinkedIn: https://linkedin.com/in/yourprofile
-- Portfolio: https://yourportfolio.com
-- Email: your@email.com
+- LinkedIn: https://linkedin.com/in/yamuna-sharma-6aa0a1321
+- Email: yamunasharma2745@email.com
 
 ---
-
-# ⭐ Support
-
-If you found this project useful, consider giving it a ⭐ on GitHub!
-
----
-
-# 📄 License
-
-This project is licensed under the MIT License.
-
-Feel free to fork, modify, and use it for educational purposes.
