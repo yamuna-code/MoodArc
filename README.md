@@ -1,123 +1,478 @@
-🎧 MoodArc: Music Intelligence Platform
+# 🎧 MoodArc – AI-Powered Music Intelligence Platform
 
-An AI-powered data product mapping emotional trajectories and syncing music to narrative scenes.
+> **Mapping emotional trajectories in music using NLP and recommending songs for storytelling scenes.**
 
-🚀 Live Demo: Click here to view the live Streamlit App
-(Replace the link above once you deploy!)
+MoodArc is an AI-powered music analytics platform that transforms song lyrics into emotional intelligence. Instead of relying on Spotify's deprecated Audio Features API, MoodArc engineers its own emotional and pacing metrics using Natural Language Processing (NLP).
 
-🛑 The Problem & The Pivot
+The project combines **data engineering**, **machine learning**, **text analytics**, and **interactive visualization** to help creators discover music that best matches the emotional tone of their content.
 
-Most "Spotify Data Science" projects rely on surface-level feature engineering, pulling pre-calculated API metrics to predict a static number. Furthermore, in late 2024, Spotify deprecated and locked their /audio-features endpoint, breaking thousands of portfolio projects worldwide.
+---
 
-MoodArc flips this problem into an engineering feature. Instead of relying on black-box corporate metrics, this project bypasses the restriction by engineering custom emotional and pacing proxies purely through Text Mining and Natural Language Processing (NLP) of song lyrics.
+## 🚀 Live Demo
 
-It elevates a standard music-analysis script into a functional B2B Creator Tool.
+🔗 **Streamlit App:** *(Add your deployed Streamlit URL here)*
 
-✨ Core Features
+---
 
-1. 📊 The Emotion Matrix (Macro Analytics)
+# 📖 Table of Contents
 
-An interactive, multi-axis scatter plot visualizing the emotional shift across multiple artists' discographies.
+- [Problem Statement](#-problem-statement)
+- [Project Overview](#-project-overview)
+- [Features](#-features)
+- [Architecture](#-architecture)
+- [Tech Stack](#-tech-stack)
+- [Project Workflow](#-project-workflow)
+- [Installation](#-installation)
+- [Configuration](#-configuration)
+- [Usage](#-usage)
+- [Screenshots](#-screenshots)
+- [Future Improvements](#-future-improvements)
+- [Project Structure](#-project-structure)
+- [Author](#-author)
+- [License](#-license)
 
-X-Axis (Valence): Engineered using the VADER Sentiment Analyzer on raw scraped lyric text.
+---
 
-Y-Axis (Energy Proxy): Engineered by calculating lexical density, vocabulary repetition ratios, and structural text pacing.
+# 🛑 Problem Statement
 
-2. 🎬 AI Scene Sync Tool (Micro Application)
+Most Spotify-based data science projects rely heavily on Spotify's precomputed **Audio Features API**.
 
-A Natural Language search engine built for video editors and filmmakers.
+However, in late **2024**, Spotify deprecated and restricted access to the `/audio-features` endpoint, making thousands of existing portfolio projects obsolete.
 
-Users describe their video scene (e.g., "A heartbreaking goodbye in the rain").
+Instead of depending on proprietary black-box metrics, **MoodArc** generates its own emotional and structural song features directly from lyrics using Natural Language Processing.
 
-The backend NLP engine calculates the target emotional valence in real-time.
+This transforms a simple music visualization project into a scalable **Music Intelligence Platform** suitable for creators, analysts, and recommendation systems.
 
-A mathematical recommendation algorithm uses Euclidean Distance to map the scene's coordinates against the SQL database, returning the best-fit tracks.
+---
 
-( 📸 Pro-Tip: Add a GIF recording of your Streamlit app in action right here!)
+# 🎯 Project Overview
 
-🛠️ Technical Architecture
+MoodArc analyzes lyrics to estimate:
 
-Component
+- ❤️ Emotional Valence
+- ⚡ Energy / Intensity
+- 📝 Lexical Density
+- 🔁 Repetition Index
+- 📈 Structural Pacing
 
-Technology
+These engineered features are then used to:
 
-Description
+- Visualize emotional shifts across artists
+- Recommend songs for film scenes
+- Match narrative emotion with music
+- Build emotion-aware playlists
 
-Data Ingestion
+---
 
-Spotipy, LyricsGenius
+# ✨ Features
 
-Extracts track metadata and lyrics, handling API rate limits and pagination.
+## 📊 1. Emotion Matrix
 
-Storage
+An interactive Plotly visualization that maps songs across an emotional landscape.
 
-SQLite
+### X-Axis
 
-Stores clean, relational data directly on disk for high-speed local reads.
+**Valence Score**
 
-NLP Enrichment
+Calculated using:
 
-VADER Sentiment
+- VADER Sentiment Analyzer
+- Lyric polarity
+- Compound sentiment score
 
-Processes thousands of lyric lines to extract normalized polarity scores (-1.0 to +1.0).
+---
 
-Engine
+### Y-Axis
 
-Pandas, NumPy
+**Energy Proxy**
 
-Calculates structural text features (word count, repetition index) and vector distances.
+Engineered using textual characteristics such as:
 
-Frontend UI
+- Word count
+- Vocabulary richness
+- Repetition ratio
+- Lexical density
+- Structural pacing
 
-Streamlit, Plotly
+This provides a reasonable approximation of song intensity without requiring audio signal processing.
 
-Renders a responsive, interactive web dashboard.
+---
 
-💻 Quick Start Guide
+## 🎬 2. AI Scene Sync Tool
 
-1. Clone & Set Up
+A recommendation engine designed for:
 
-git clone [https://github.com/yourusername/MoodArc.git](https://github.com/yourusername/MoodArc.git)
+- Video Editors
+- Filmmakers
+- Content Creators
+- Storytellers
+
+Users simply describe a scene, for example:
+
+> *"A heartbreaking goodbye in the rain."*
+
+MoodArc then:
+
+1. Performs sentiment analysis on the scene description.
+2. Calculates the target emotional coordinates.
+3. Compares them against every song stored in the database.
+4. Uses Euclidean Distance to identify the closest emotional match.
+5. Returns the most suitable songs.
+
+---
+
+## 📈 3. Interactive Dashboard
+
+Built with **Streamlit** and **Plotly**, featuring:
+
+- Interactive scatter plots
+- Hover information
+- Artist filtering
+- Emotional analytics
+- Dynamic recommendations
+
+---
+
+# 🏗️ Architecture
+
+```
+Spotify API
+       │
+       ▼
+Track Metadata
+
+LyricsGenius API
+       │
+       ▼
+Song Lyrics
+
+       │
+       ▼
+SQLite Database
+
+       │
+       ▼
+NLP Processing
+(VADER Sentiment)
+
+       │
+       ▼
+Feature Engineering
+
+       │
+       ▼
+Recommendation Engine
+
+       │
+       ▼
+Streamlit Dashboard
+```
+
+---
+
+# 🛠 Tech Stack
+
+| Component | Technology |
+|------------|------------|
+| Language | Python |
+| Data Collection | Spotipy |
+| Lyrics | LyricsGenius |
+| Database | SQLite |
+| NLP | NLTK, VADER |
+| Data Analysis | Pandas |
+| Numerical Computing | NumPy |
+| Visualization | Plotly |
+| Dashboard | Streamlit |
+
+---
+
+# ⚙️ Project Workflow
+
+```
+Spotify API
+        ↓
+
+Collect Track Metadata
+        ↓
+
+Scrape Lyrics
+        ↓
+
+Store in SQLite
+        ↓
+
+Run Sentiment Analysis
+        ↓
+
+Engineer Emotional Features
+        ↓
+
+Generate Emotion Matrix
+        ↓
+
+Recommend Songs
+```
+
+---
+
+# 📦 Installation
+
+Clone the repository.
+
+```bash
+git clone https://github.com/yourusername/MoodArc.git
+
 cd MoodArc
+```
+
+Create a virtual environment.
+
+### Windows
+
+```bash
 python -m venv venv
 
-# Activate Environment (Windows)
-.\venv\Scripts\Activate.ps1
-# Activate Environment (Mac/Linux)
+.\venv\Scripts\activate
+```
+
+### macOS / Linux
+
+```bash
+python3 -m venv venv
+
 source venv/bin/activate
+```
 
+Install dependencies.
+
+```bash
 pip install -r requirements.txt
+```
 
+---
 
-2. Configure Credentials
+# 🔑 Configuration
 
-Create a config.py file in the root directory:
+Create a file named
 
-SPOTIFY_CLIENT_ID = "your_spotify_id"
-SPOTIFY_CLIENT_SECRET = "your_spotify_secret"
-GENIUS_ACCESS_TOKEN = "your_genius_token"
+```python
+config.py
+```
 
+Add your API credentials.
 
-(Ensure config.py is added to your .gitignore!)
+```python
+SPOTIFY_CLIENT_ID = "your_client_id"
 
-3. Build & Run
+SPOTIFY_CLIENT_SECRET = "your_client_secret"
 
-# Scrape the data and build the database
+GENIUS_ACCESS_TOKEN = "your_genius_access_token"
+```
+
+⚠️ Never commit this file.
+
+Add it to `.gitignore`.
+
+```
+config.py
+```
+
+---
+
+# ▶️ Usage
+
+## Step 1 — Collect Data
+
+```bash
 python pipeline.py
+```
 
-# Run NLP enrichment on the raw text
+Downloads Spotify metadata and lyrics.
+
+---
+
+## Step 2 — NLP Enrichment
+
+```bash
 python enrich_sentiment.py
+```
 
-# Launch the live dashboard
+Calculates:
+
+- Sentiment
+- Emotional Valence
+- Energy Proxy
+- Lexical Features
+
+---
+
+## Step 3 — Launch Dashboard
+
+```bash
 streamlit run app.py
+```
 
+Open the local Streamlit URL in your browser.
 
-🔮 Future Roadmap
+---
 
-[ ] Audio-Signal Processing: Integrate librosa to extract raw waveform features (BPM, spectral centroid) from 30-second preview MP3s.
+# 📸 Screenshots
 
-[ ] LLM Integration: Replace VADER with a lightweight local transformer (e.g., DistilBERT) for deeper contextual embedding of sarcastic lyrics.
+## Emotion Matrix
 
-[ ] Cloud Database: Migrate from local SQLite to PostgreSQL (Supabase/AWS) for scalable production deployment.
+> *(Insert screenshot here)*
 
-Created by Yamuna
+---
+
+## AI Scene Sync Tool
+
+> *(Insert screenshot here)*
+
+---
+
+## Dashboard
+
+> *(Insert dashboard GIF here)*
+
+---
+
+# 📂 Project Structure
+
+```
+MoodArc/
+
+│
+
+├── app.py
+
+├── pipeline.py
+
+├── enrich_sentiment.py
+
+├── config.py
+
+├── requirements.txt
+
+├── database/
+
+│   └── moodarc.db
+
+├── assets/
+
+│   ├── dashboard.png
+
+│   ├── emotion_matrix.png
+
+│   └── demo.gif
+
+├── notebooks/
+
+├── README.md
+
+└── .gitignore
+```
+
+---
+
+# 🔮 Future Improvements
+
+## 🎵 Audio Signal Processing
+
+Integrate **Librosa** to extract:
+
+- BPM
+- Tempo
+- Spectral Centroid
+- MFCC Features
+- Zero Crossing Rate
+
+using Spotify preview audio.
+
+---
+
+## 🤖 Transformer-Based NLP
+
+Replace VADER with:
+
+- DistilBERT
+- RoBERTa
+- Sentence Transformers
+
+for more contextual understanding of lyrics.
+
+---
+
+## ☁️ Cloud Deployment
+
+Move from SQLite to:
+
+- PostgreSQL
+- Supabase
+- AWS RDS
+
+for scalable production deployment.
+
+---
+
+## 🎼 Playlist Generation
+
+Generate automatic playlists based on:
+
+- Mood
+- Story Arc
+- Film Genre
+- Emotional Journey
+
+---
+
+## 📱 Mobile Interface
+
+Build a responsive frontend using:
+
+- React
+- Next.js
+- Flutter
+
+---
+
+# 💡 Why This Project?
+
+Unlike traditional Spotify analytics projects, MoodArc is resilient against API restrictions by engineering emotional features directly from lyrical content.
+
+It demonstrates practical skills in:
+
+- Data Engineering
+- Natural Language Processing
+- Recommendation Systems
+- Data Visualization
+- Interactive Dashboard Development
+- Feature Engineering
+- Python Backend Development
+
+making it an excellent portfolio project for Data Science, Machine Learning, and AI roles.
+
+---
+
+# 👨‍💻 Author
+
+**Your Name**
+
+Second-Year Data Science Student
+
+- LinkedIn: https://linkedin.com/in/yourprofile
+- Portfolio: https://yourportfolio.com
+- Email: your@email.com
+
+---
+
+# ⭐ Support
+
+If you found this project useful, consider giving it a ⭐ on GitHub!
+
+---
+
+# 📄 License
+
+This project is licensed under the MIT License.
+
+Feel free to fork, modify, and use it for educational purposes.
